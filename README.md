@@ -1,5 +1,3 @@
-[PORTFOLIO_HOME](https://satyjais.github.io/)
-
 # GoogleAds_Data_Dashboard
 # Business Background
 While working, as the account/data manager, on a digital advertising project for a senior living marketplace in the US, a dashboard was needed to share performace internally as well as wih the the client. The data team at the client side provided us with the looker dashboard consisting of all the important post-lead metrics that we needed to track. 
