@@ -15,7 +15,7 @@ SELECT
   campaign_start_date,
   campaign_serving_status,
 FROM
-  `aroscop-456222.Seniorly_Adwords.ads_Campaign_9925610920`
+  `aroscop-456222.********_Adwords.ads_Campaign_9925610920`
 WHERE
   campaign_start_date >'2025-02-25'
 ```
@@ -33,9 +33,9 @@ SELECT
   Campaign.segments_device,
   round(Campaign.metrics_cost_micros/1000000,2) as cost
 FROM
-  `aroscop-456222.Seniorly_Adwords.ads_CampaignBasicStats_9925610920` AS Campaign
+  `aroscop-456222.********_Adwords.ads_CampaignBasicStats_9925610920` AS Campaign
 LEFT JOIN
-  `Cleaned_Data_Metadata_Seniorly.Campaign_Meta` AS Meta
+  `Cleaned_Data_Metadata_********.Campaign_Meta` AS Meta
 USING
   (campaign_id)
 ORDER BY
@@ -60,10 +60,10 @@ Select
   segments_device,
   segments_date
 FROM
-  `Seniorly_Adwords.ads_ClickStats_9925610920` AS Clicks
+  `********_Adwords.ads_ClickStats_9925610920` AS Clicks
 LEFT OUTER
 JOIN
-`Cleaned_Data_Metadata_Seniorly.Campaign_Meta`
+`Cleaned_Data_Metadata_********.Campaign_Meta`
 using(campaign_id)
 ORDER BY
   segments_date
@@ -84,9 +84,9 @@ SELECT
   ad_group_criterion_position_estimates_first_page_cpc_micros,
   ad_group_criterion_quality_info_post_click_quality_score
 FROM
-  `aroscop-456222.Seniorly_Adwords.p_ads_Keyword_9925610920` as Keywords
+  `aroscop-456222.********_Adwords.p_ads_Keyword_9925610920` as Keywords
 LEFT JOIN
-  `Cleaned_Data_Metadata_Seniorly.Campaign_Meta` as Meta
+  `Cleaned_Data_Metadata_********.Campaign_Meta` as Meta
   Using (campaign_id)
 Where
  Meta.campaign_start_date >='2025-02-25'
@@ -110,9 +110,9 @@ SELECT
   sqt.search_term_view_status,
   sqt.search_term_view_search_term
 FROM
-  `Seniorly_Adwords.ads_SearchQueryStats_9925610920` AS sqt
+  `********_Adwords.ads_SearchQueryStats_9925610920` AS sqt
 LEFT JOIN
-  `Cleaned_Data_Metadata_Seniorly.Campaign_Meta`AS cmp
+  `Cleaned_Data_Metadata_********.Campaign_Meta`AS cmp
 USING
   (campaign_id)
 WHERE
@@ -123,7 +123,7 @@ WHERE
 ### Appending campaign meta data (as new campaigns launch)
 ``` sql
 INSERT INTO
-`Cleaned_Data_Metadata_Seniorly.Campaign_Meta`
+`Cleaned_Data_Metadata_********.Campaign_Meta`
 SELECT
   campaign_id,
   campaign_name,
@@ -132,13 +132,13 @@ SELECT
   campaign_start_date,
   campaign_serving_status,
 FROM
-  `Seniorly_Adwords.p_ads_Campaign_9925610920` AS Campaign
+  `********_Adwords.p_ads_Campaign_9925610920` AS Campaign
 WHERE
   NOT EXISTS (
   SELECT
     campaign_id
   FROM
-    `aroscop-456222.Cleaned_Data_Metadata_Seniorly.Campaign_Meta`
+    `aroscop-456222.Cleaned_Data_Metadata_********.Campaign_Meta`
   WHERE
     campaign_id = Campaign.campaign_id )
   AND Campaign.campaign_start_date >'2025-02-25'
@@ -149,7 +149,7 @@ WHERE
 
 ```sql
 Insert INTO
-`Cleaned_Data_Metadata_Seniorly.Campaign_Metrics`
+`Cleaned_Data_Metadata_********.Campaign_Metrics`
 SELECT
   segments_date,
   Campaign.campaign_id,
@@ -161,12 +161,12 @@ SELECT
   Campaign.segments_device,
   round(Campaign.metrics_cost_micros/1000000,2) as cost
 FROM
-  `aroscop-456222.Seniorly_Adwords.ads_CampaignBasicStats_9925610920` AS Campaign
+  `aroscop-456222.********_Adwords.ads_CampaignBasicStats_9925610920` AS Campaign
 LEFT JOIN
-  `Cleaned_Data_Metadata_Seniorly.Campaign_Meta` AS Meta
+  `Cleaned_Data_Metadata_********.Campaign_Meta` AS Meta
 USING
   (campaign_id)
-Where Campaign.segments_date > (select max(segments_date) from `Cleaned_Data_Metadata_Seniorly.Campaign_Metrics`)
+Where Campaign.segments_date > (select max(segments_date) from `Cleaned_Data_Metadata_********.Campaign_Metrics`)
 ORDER BY
 segments_date
 ```
@@ -175,7 +175,7 @@ segments_date
 
 ```sql
 INSERT INTO
-`Cleaned_Data_Metadata_Seniorly.Clicks_Gclids`
+`Cleaned_Data_Metadata_********.Clicks_Gclids`
 Select
   click_view_gclid,
   Clicks.campaign_id,
@@ -193,15 +193,15 @@ Select
   segments_device,
   segments_date
 FROM
-  `Seniorly_Adwords.ads_ClickStats_9925610920` AS Clicks
+  `********_Adwords.ads_ClickStats_9925610920` AS Clicks
 LEFT OUTER
 JOIN
-`Cleaned_Data_Metadata_Seniorly.Campaign_Meta`
+`Cleaned_Data_Metadata_********.Campaign_Meta`
 using(campaign_id)
-Where Clicks.segments_date > (select max(segments_date) from `Cleaned_Data_Metadata_Seniorly.Clicks_Gclids`)
+Where Clicks.segments_date > (select max(segments_date) from `Cleaned_Data_Metadata_********.Clicks_Gclids`)
 AND
 not exists
-(select * from `Cleaned_Data_Metadata_Seniorly.Clicks_Gclids` as Old
+(select * from `Cleaned_Data_Metadata_********.Clicks_Gclids` as Old
 WHERE
   Old.click_view_gclid = Clicks.click_view_gclid
 )
@@ -213,7 +213,7 @@ ORDER BY
 
 ```sql
 INSERT INTO
-`Cleaned_Data_Metadata_Seniorly.Search_Queries`
+`Cleaned_Data_Metadata_********.Search_Queries`
 SELECT
   sqt.segments_date,
   sqt.campaign_id,
@@ -229,13 +229,13 @@ SELECT
   sqt.search_term_view_status,
   sqt.search_term_view_search_term
 FROM
-  `Seniorly_Adwords.ads_SearchQueryStats_9925610920` AS sqt
+  `********_Adwords.ads_SearchQueryStats_9925610920` AS sqt
 LEFT JOIN
-  `Cleaned_Data_Metadata_Seniorly.Campaign_Meta`AS cmp
+  `Cleaned_Data_Metadata_********.Campaign_Meta`AS cmp
 USING
   (campaign_id)
 WHERE
   cmp.campaign_start_date > '2025-02-25'
   AND sqt.search_term_view_status = 'NONE'
-  AND sqt.segments_date > (select max(segments_date) from `Cleaned_Data_Metadata_Seniorly.Search_Queries`)
+  AND sqt.segments_date > (select max(segments_date) from `Cleaned_Data_Metadata_********.Search_Queries`)
 ```
