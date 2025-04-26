@@ -271,10 +271,11 @@ WHERE
 
 **Sample Dashboard images - **
 
-<img src="assets/Campaign_performance.png" alt="Bringing Data into BigQuery-Datawarehouse" style="width:70%; height:auto;"
+<img src="assets/Campaign_performance.png" alt="Bringing Data into BigQuery-Datawarehouse" style="width:70%; height:auto;">
 
-<img src="assets/Device-Adtype.png" alt="Bringing Data into BigQuery-Datawarehouse" style="width:70%; height:auto;"
+<img src="assets/Device-Adtype.png" alt="Bringing Data into BigQuery-Datawarehouse" style="width:70%; height:auto;">
 
-<img src="assets/GClid.png" alt="Bringing Data into BigQuery-Datawarehouse" style="width:70%; height:auto;"
+<img src="assets/GClid.png" alt="Bringing Data into BigQuery-Datawarehouse" style="width:70%; height:auto;">
 
-<img src="assets/GClid.png" alt="Bringing Data into BigQuery-Datawarehouse" style="width:70%; height:auto;"
+<img src="assets/GClid.png" alt="Bringing Data into BigQuery-Datawarehouse" style="width:70%; height:auto;">
+>
