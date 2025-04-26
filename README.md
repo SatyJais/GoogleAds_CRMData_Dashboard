@@ -259,4 +259,4 @@ WHERE
 ```
 ### Scheduling the Queries to run each day
 
-<img src="assets/Scheduled_Queries.png" alt="Bringing Data into BigQuery-Datawarehouse" style="width:30%; height:auto;">
+<img src="assets/Scheduled_Queries.png" alt="Bringing Data into BigQuery-Datawarehouse" style="width:70%; height:auto;">
