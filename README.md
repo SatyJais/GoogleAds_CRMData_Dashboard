@@ -7,6 +7,16 @@ The objective was not just to track pre-lead trends, but also to establish a cle
 # Challenge
 One of the major hurdles was integrating Google Ads data with the client's CRM data (lead records). The challenge stemmed from difficulties in locating the correct tables and metrics within the client’s existing data infrastructure, limiting our ability to create a seamless connection between marketing efforts and lead outcomes.
 
+
+## Step 1 
+Bringing Google Ads data into BigQuery 
+
+<img src="assets/Create_Transfer.png" alt="Bringing Data into BigQuery-Datawarehouse" style="width:30%; height:auto;">
+
+## Step 2 
+Next I created the metadata required to combine metrics from different tables for an integrated view.
+
+
 ### Creating Metadata for campaigns
 ```sql
 SELECT
@@ -21,6 +31,10 @@ FROM
 WHERE
   campaign_start_date >'2025-02-25'
 ```
+
+## Step 3
+
+Step 3 was populating metrics for different dimensions at the campaign, Keywords, search query, and clicks levels
 
 ### Getting metrics & dimensions for Campaigns
 ```sql
@@ -121,8 +135,10 @@ WHERE
   cmp.campaign_start_date > '2025-02-25'
   AND sqt.search_term_view_status = 'NONE'
 ```
+## Step 4
+The final step for the data warehousing was to create auto **refreshes** and **appends** to the tables created earlier.
 
-### Appending campaign meta data (as new campaigns launch)
+### Appending campaign metadata (as new campaigns launch)
 ``` sql
 INSERT INTO
 `Cleaned_Data_Metadata_********.Campaign_Meta`
@@ -241,3 +257,6 @@ WHERE
   AND sqt.search_term_view_status = 'NONE'
   AND sqt.segments_date > (select max(segments_date) from `Cleaned_Data_Metadata_********.Search_Queries`)
 ```
+### Scheduling the Queries to run each day
+
+<img src="assets/Scheduled_Queries.png" alt="Bringing Data into BigQuery-Datawarehouse" style="width:30%; height:auto;">
