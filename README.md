@@ -1,9 +1,11 @@
 # Business Background
-While working, as the account/data manager, on a digital advertising project for a senior living marketplace in the US, a dashboard was needed to share performace internally as well as wih the the client. The data team at the client side provided us with the looker dashboard consisting of all the important post-lead metrics that we needed to track. 
-I was responsible guiding the client in creating the Google Ads dashboard and creating the link between each dollar spent, each keyword we bid on to each lead and its quality.
+As the Account/Data Manager for a digital advertising project with a senior living marketplace in the U.S., I was tasked with building a dashboard to monitor campaign performance — both for internal use and for client reporting.
+
+The client’s data team provided a Looker dashboard that tracked key post-lead metrics. Meanwhile, my team was responsible for guiding the client in setting up a Google Ads dashboard focused on pre-lead performance indicators such as spend, CTR, CPC, and CPL. These metrics were to be broken down by device type, ad type, gender, and age group.
+The objective was not just to track pre-lead trends, but also to establish a clear connection between ad spend, individual keywords & clicks and lead generation & quality.
 
 # Challenge
-Integrating Google Ads data with client's CRM (leads) data to understand impact of the campaigns at each click/keyword level.
+One of the major hurdles was integrating Google Ads data with the client's CRM data (lead records). The challenge stemmed from difficulties in locating the correct tables and metrics within the client’s existing data infrastructure, limiting our ability to create a seamless connection between marketing efforts and lead outcomes.
 
 ### Creating Metadata for campaigns
 ```sql
