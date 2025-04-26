@@ -260,3 +260,21 @@ WHERE
 ### Scheduling the Queries to run each day
 
 <img src="assets/Scheduled_Queries.png" alt="Bringing Data into BigQuery-Datawarehouse" style="width:70%; height:auto;">
+
+## Step 4 - Bringing the cleaned and transformed data to Looker Studio.
+
+
+<img src="assets/ConnectingtoLooker.png" alt="Bringing Data into BigQuery-Datawarehouse" style="width:70%; height:auto;">
+
+
+## Step 5 - Creating the dashboard and exposing GCLIDs for client to connect to their leads information (CRM)
+
+**Sample Dashboard images - **
+
+<img src="assets/Campaign_performance.png" alt="Bringing Data into BigQuery-Datawarehouse" style="width:70%; height:auto;"
+
+<img src="assets/Device-Adtype.png" alt="Bringing Data into BigQuery-Datawarehouse" style="width:70%; height:auto;"
+
+<img src="assets/GClid.png" alt="Bringing Data into BigQuery-Datawarehouse" style="width:70%; height:auto;"
+
+<img src="assets/GClid.png" alt="Bringing Data into BigQuery-Datawarehouse" style="width:70%; height:auto;"
