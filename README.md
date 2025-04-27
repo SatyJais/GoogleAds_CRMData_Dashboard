@@ -278,6 +278,3 @@ WHERE
 <img src="assets/Device-Adtype.png" alt="Bringing Data into BigQuery-Datawarehouse" style="width:70%; height:auto;">
 
 <img src="assets/GClid.png" alt="Bringing Data into BigQuery-Datawarehouse" style="width:70%; height:auto;">
-
-<img src="assets/GClid.png" alt="Bringing Data into BigQuery-Datawarehouse" style="width:70%; height:auto;">
->
