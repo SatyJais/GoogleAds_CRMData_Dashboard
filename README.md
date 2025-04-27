@@ -1,7 +1,7 @@
 [PORTFOLIO_HOME](https://satyjais.github.io/)
 
 ## ETL and dashboarding using Google BigQuery(SQL) & Looker Studio
-Data streamlining &amp; automation project 
+Data streamlining, integration &amp; automation project 
 
 # Business Background
 As the Account/Data Manager for a digital advertising project with a senior living marketplace in the U.S., I was tasked with building a dashboard to monitor campaign performance — both for internal use and for client reporting.
