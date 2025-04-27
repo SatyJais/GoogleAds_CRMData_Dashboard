@@ -259,6 +259,7 @@ WHERE
   AND sqt.search_term_view_status = 'NONE'
   AND sqt.segments_date > (select max(segments_date) from `Cleaned_Data_Metadata_********.Search_Queries`)
 ```
+
 ### Scheduling the Queries to run each day
 
 <img src="assets/Scheduled_Queries.png" alt="Bringing Data into BigQuery-Datawarehouse" style="width:70%; height:auto;">
