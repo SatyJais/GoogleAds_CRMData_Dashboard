@@ -278,3 +278,8 @@ WHERE
 <img src="assets/Device-Adtype.png" alt="dashboardsample2" style="width:40%; height:auto;">
 
 <img src="assets/GClid.png" alt="dashboardsample3" style="width:40%; height:auto;">
+
+## Step 6 - Joining tables - CRM & Google Ads, to map each lead to campaign, keywords, and locations.
+To understand the impact of keywords, campaigns, devices, and locations on leads' quality and identify any trends.
+
+<img src="assets/Joins.png" alt="TableJoins" style="width:40%; height:auto;">
