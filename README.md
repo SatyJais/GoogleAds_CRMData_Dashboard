@@ -16,7 +16,7 @@ One of the major hurdles was integrating Google Ads data with the client's CRM d
 ## Step 1 - Data Ingestion 
 Bringing Google Ads data into the data warehouse - BigQuery.
 
-<img src="assets/Create_Transfer.png" alt="Bringing Data into BigQuery-Datawarehouse" style="width:30%; height:auto;">
+<img src="assets/Create_Transfer.png" alt="Bringing Data into BigQuery-Datawarehouse" style="width:60%; height:auto;">
 
 ## Step 2 - Date Cleaning & Transformation
 Next I created the metadata required to combine metrics from different tables for an integrated view.
@@ -269,7 +269,7 @@ WHERE
 <img src="assets/ConnectingtoLooker.png" alt="Bringing Data into BigQuery-Datawarehouse" style="width:70%; height:auto;">
 
 
-## Step 5 - Creating the dashboard and exposing GCLIDs for client to connect to their leads information (CRM)
+## Step 5 - Creating the dashboard and exposing GCLIDs (Google Click Ids) for the client to connect to their leads information (CRM)
 
 **Sample Dashboard images - **
 
