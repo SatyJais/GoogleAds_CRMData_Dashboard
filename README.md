@@ -12,17 +12,16 @@ The objective was not just to track pre-lead trends, but also to establish a cle
 # Challenge
 One of the major hurdles was integrating Google Ads data with the client's CRM data (lead records). The challenge stemmed from difficulties in locating the correct tables and metrics within the client’s existing data infrastructure, limiting our ability to create a seamless connection between marketing efforts and lead outcomes.
 
-
-## Step 1 
-Bringing Google Ads data into BigQuery 
+# Solution
+## Step 1 - Data Ingestion 
+Bringing Google Ads data into the data warehouse - BigQuery.
 
 <img src="assets/Create_Transfer.png" alt="Bringing Data into BigQuery-Datawarehouse" style="width:30%; height:auto;">
 
-## Step 2 
+## Step 2 - Date Cleaning & Transformation
 Next I created the metadata required to combine metrics from different tables for an integrated view.
 
-
-### Creating Metadata for campaigns
+### Step 2.1 - Creating Metadata for campaigns
 ```sql
 SELECT
   DISTINCT(campaign_id),
@@ -37,11 +36,8 @@ WHERE
   campaign_start_date >'2025-02-25'
 ```
 
-## Step 3
 
-Step 3 was populating metrics for different dimensions at the campaign, Keywords, search query, and clicks levels
-
-### Getting metrics & dimensions for Campaigns
+### Step 2.2 - Getting metrics & dimensions for Campaigns
 ```sql
 SELECT
   segments_date,
@@ -62,7 +58,7 @@ USING
 ORDER BY
 segments_date
 ```
-### Clicks Ids & related metrics 
+###  Step 2.3 - Clicks Ids & related metrics 
 ```sql
 Select
   click_view_gclid,
@@ -90,7 +86,7 @@ ORDER BY
   segments_date
 ```
 
-### Keyword level information
+###  Step 2.4 - Keyword level information
 ```sql
 SELECT
   ad_group_id,
@@ -113,7 +109,7 @@ Where
  Meta.campaign_start_date >='2025-02-25'
 ```
 
-### Search queries (accept those that have been acted upon (added to keywords or negatives)
+### Step 2.4 -  Search queries (accept those that have been acted upon (added to keywords or negatives)
 
 ```sql
 SELECT
@@ -140,7 +136,7 @@ WHERE
   cmp.campaign_start_date > '2025-02-25'
   AND sqt.search_term_view_status = 'NONE'
 ```
-## Step 4
+## Step 4 Pipeline Orchestration
 The final step for the data warehousing was to create auto **refreshes** and **appends** to the tables created earlier.
 
 ### Appending campaign metadata (as new campaigns launch)
