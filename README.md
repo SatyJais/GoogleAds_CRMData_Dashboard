@@ -1,6 +1,6 @@
 [PORTFOLIO_HOME](https://satyjais.github.io/)
 
-## ETL and dashboarding using Google BigQuery(SQL) & Looker Studio
+## ETL and dashboarding for Google & Meta Ads using Google BigQuery(SQL) & Looker Studio
 Data streamlining, integration &amp; automation project 
 
 # Business Background
