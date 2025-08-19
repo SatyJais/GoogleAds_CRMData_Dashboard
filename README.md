@@ -6,18 +6,63 @@ Data streamlining, integration &amp; automation project
 # Business Background
 As the Account/Data Manager for a digital advertising project with a senior living marketplace in the U.S., I was tasked with building a dashboard to monitor campaign performance — both for internal use and for client reporting.
 
-The client’s data team provided a Looker dashboard that tracked key post-lead metrics. Meanwhile, my team was responsible for guiding the client in setting up a Google Ads dashboard focused on pre-lead performance indicators such as spend, CTR, CPC, and CPL. These metrics were to be broken down by device type, ad type, gender, and age group.
+The client’s data team provided a Looker dashboard that tracked key post-lead metrics. Meanwhile, my team was responsible for guiding the client in setting up a Google Ads & Meta Ads dashboard focused on pre-lead performance indicators such as spend, CTR, CPC, and CPL. These metrics were to be broken down by device type, ad type, gender, and age group.
 The objective was not just to track pre-lead trends, but also to establish a clear connection between ad spend, individual keywords & clicks and lead generation & quality.
 
 # Challenge
-One of the major hurdles was integrating Google Ads data with the client's CRM data (lead records). The challenge stemmed from difficulties in locating the correct tables and metrics within the client’s existing data infrastructure, limiting our ability to create a seamless connection between marketing efforts and lead outcomes.
+One of the major hurdles was integrating Google & Meta Ads data with the client's CRM data (lead records). The challenge stemmed from difficulties in locating the correct tables and metrics within the client’s existing data infrastructure, limiting our ability to create a seamless connection between marketing efforts and lead outcomes. Even when identified, the whole process was manual. 
 
 # Solution
 ## Step 1 - Data Ingestion 
+## Google ads data - 
 Bringing Google Ads data into the data warehouse - BigQuery.
 
 <img src="assets/Create_Transfer.png" alt="Bringing Data into BigQuery-Datawarehouse" style="width:60%; height:auto;">
 
+## Meta Ads data
+## Setting up data transfer was a little trickier. Here's are step-by-step instructions to connect FB ads to bigQuery
+**1️⃣ Create a Facebook App (Meta for Developers)**
+
+    Go to Meta for Developers
+     → My Apps → Create App.
+    
+    Choose - Business type (needed for Ads API access).
+    
+    Provide an App Name, Business Account, and contact email.
+
+**2️⃣ Add the Marketing API product**
+In your App dashboard → Add Product → select **Marketing API.**
+This enables ad account and campaign data access.
+
+**3️⃣ Get the required permissions**
+For BigQuery Data Transfer, check the below permissions:
+    ads_read (read campaign & ad performance data).
+    ads_management (needed even for some read operations & BQ integration).
+    business_management
+
+In App → App Review → Permissions and Features → Request these scopes.
+
+**4️⃣ Create a System User & Access Token (via Business Manager)**
+
+Go to Business Settings → System Users → Add new system user (Admin role).
+Assign ad accounts to this user.
+
+Generate a long-lived access token with ads_read + ads_management.
+
+**5️⃣ Set up BigQuery Data Transfer Service**
+
+**Keep token, App ID(client ID), and App secret handy**
+In Google Cloud → BigQuery → Data Transfers → Create Transfer.
+
+Choose Facebook Ads as the source.
+Authorize with the same (refresh) token that has the required permissions. 
+Add client ID & Client Secret from earlier.
+
+<img src="assets/Facebook_datatransfer.png" alt="Bringing Data into BigQuery-Datawarehouse" style="width:60%; height:auto;">
+
+
+Select ad account(s) and schedule daily/hourly imports.
+  
 ## Step 2 - Date Cleaning & Transformation
 Next I created the metadata required to combine metrics from different tables for an integrated view.
 
