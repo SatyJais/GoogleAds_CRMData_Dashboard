@@ -20,19 +20,17 @@ Bringing Google Ads data into the data warehouse - BigQuery.
 <img src="assets/Create_Transfer.png" alt="Bringing Data into BigQuery-Datawarehouse" style="width:60%; height:auto;">
 
 ## Meta Ads data
-## Setting up data transfer was a little trickier. Here's are step-by-step instructions to connect FB ads to bigQuery
+### Setting up data transfer was a little trickier. Here are the step-by-step instructions to connect FB ads to BigQuery
 **1️⃣ Create a Facebook App (Meta for Developers)**
 
     Go to Meta for Developers
      → My Apps → Create App.
-    
     Choose - Business type (needed for Ads API access).
-    
     Provide an App Name, Business Account, and contact email.
 
 **2️⃣ Add the Marketing API product**
-In your App dashboard → Add Product → select **Marketing API.**
-This enables ad account and campaign data access.
+    In your App dashboard → Add Product → select **Marketing API.**
+    This enables ad account and campaign data access.
 
 **3️⃣ Get the required permissions**
 For BigQuery Data Transfer, check the below permissions:
